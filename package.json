@@ -1,0 +1,41 @@
+{
+  "name": "periodictable",
+  "version": "1.0.0",
+  "description": "This component demonstrates how to use css grid to create a complex table layout",
+  "keywords": [
+    "material-ui",
+    "redux-starter-kit",
+    "grid-css",
+    "reactjs",
+    "periodict-table"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "3.9.3",
+    "@material-ui/icons": "3.0.2",
+    "@material-ui/styles": "3.0.0-alpha.10",
+    "@material-ui/system": "3.0.0-alpha.2",
+    "@material-ui/utils": "3.0.0-alpha.3",
+    "classnames": "2.2.6",
+    "lodash": "4.17.11",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "2.1.8",
+    "redux-starter-kit": "0.5.1"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
