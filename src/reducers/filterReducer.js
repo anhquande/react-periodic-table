@@ -17,19 +17,24 @@ const initState = {
   classification: Classification.ALL,
   period: 0,
   group: 0,
-  block: Block.ALL
+  block: Block.ALL,
+  radioactive:false
 };
 
-const setFilterByClassification = createAction(
+export const setFilterByClassification = createAction(
   "filter/setFilterByClassification"
 );
-const setFilterByPeriod = createAction("filter/setFilterByPeriod");
-const setFilterByGroup = createAction("filter/setFilterByGroup");
-const setFilterByBlock = createAction("filter/setFilterByBlock");
+export const setFilterByPeriod = createAction("filter/setFilterByPeriod");
+export const setFilterByGroup = createAction("filter/setFilterByGroup");
+export const setFilterByBlock = createAction("filter/setFilterByBlock");
+export const setFilterByRadioactive = createAction("filter/setFilterByRadioactive");
 
 export const filterReducer = createReducer(initState, {
   [setFilterByClassification]: (draft, action) => {
     draft.classification = action.payload;
+  },
+  [setFilterByRadioactive]: (draft, action) => {
+    draft.radioactive = action.payload;
   },
   [setFilterByPeriod]: (draft, action) => {
     draft.period = action.payload;

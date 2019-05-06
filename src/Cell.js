@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Cell = ({ row, col, ...props }) => {
+const Cell = ({ row, col, children }) => {
   return (
     <div
       style={{
@@ -8,7 +8,9 @@ export const Cell = ({ row, col, ...props }) => {
         gridColumn: `${col} / span 1`
       }}
     >
-      {props.children}
+      {children}
     </div>
   );
 };
+
+export default React.memo(Cell)

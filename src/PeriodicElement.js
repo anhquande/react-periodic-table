@@ -1,5 +1,4 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import lodash from "lodash";
@@ -10,53 +9,62 @@ import yellow from "@material-ui/core/colors/yellow";
 import cyan from "@material-ui/core/colors/cyan";
 import pink from "@material-ui/core/colors/pink";
 import blueGrey from "@material-ui/core/colors/blueGrey";
+import { useClasses } from './useClasses';
 
-const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    padding: theme.spacing.unit * 1,
-    margin: (theme.spacing.unit * 1) / 2,
-    backgroundColor: "#cacaca"
-  },
-  content: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  row: {
-    display: "flex"
-  },
-  atomicNumber: {},
-  title: {},
-  typeNobleGas: {
-    backgroundColor: cyan[500]
-  },
-  typeMetalloid: {
-    backgroundColor: yellow[700]
-  },
-  typeNonmetal: {
-    backgroundColor: yellow[400]
-  },
-  typeAlkaliMetal: {
-    backgroundColor: red[400]
-  },
-  typeAlkalineEarthMetal: {
-    backgroundColor: yellow[200]
-  },
-  typeTransitionMetal: {
-    backgroundColor: pink[200]
-  },
-  typePostTransitionMetal: {
-    backgroundColor: blueGrey[300]
-  },
-  typeLanthanide: {
-    backgroundColor: purple[400]
-  },
+const styles = (theme, [row, col]) => {
+  return {
+    root: {
+      padding: '4px',
+      margin: '4px',
+      backgroundColor: "#cacaca"
+    },
+    cell: {
+      gridRow: `${row} / span 1`,
+      gridColumn: `${col} / span 1`
+    },
+    content: {
+      display: "flex",
+      flexDirection: "column"
+    },
 
-  typeActinide: {
-    backgroundColor: red[800]
+    row: {
+      display: "flex"
+    },
+    atomicNumber: {},
+    title: {},
+    typeNobleGas: {
+      backgroundColor: cyan[500]
+    },
+    typeMetalloid: {
+      backgroundColor: yellow[700]
+    },
+    typeNonmetal: {
+      backgroundColor: yellow[400]
+    },
+    typeAlkaliMetal: {
+      backgroundColor: red[400]
+    },
+    typeAlkalineEarthMetal: {
+      backgroundColor: yellow[200]
+    },
+    typeTransitionMetal: {
+      backgroundColor: pink[200]
+    },
+    typePostTransitionMetal: {
+      backgroundColor: blueGrey[300]
+    },
+    typeLanthanide: {
+      backgroundColor: purple[400]
+    },
+
+    typeActinide: {
+      backgroundColor: red[800]
+    }
   }
-});
-const PeriodicElement = ({ element, highlighted, classes }) => {
+}
+
+const PeriodicElement = ({ element, row, col, highlighted }) => {
+  const classes = useClasses(styles, row, col)
   let bgStyle;
   if (
     element.Type === "Noble Gas" ||
@@ -76,17 +84,17 @@ const PeriodicElement = ({ element, highlighted, classes }) => {
 
   const bgCls = classes[bgStyle];
   return (
-    <Paper className={classNames(classes.root, bgCls)}>
+    <Paper className={classNames(classes.root, bgCls, classes.cell)}>
       <div className={classes.content}>
         <div className={classes.atomicNumber}>
           <Typography variant="subtitle1">{element.AtomicNumber}</Typography>
         </div>
         <div className={classes.title}>
-          <Typography variant="title">{element.Symbol}</Typography>
+          <Typography variant="h6">{element.Symbol}</Typography>
         </div>
       </div>
     </Paper>
   );
 };
 
-export default withStyles(styles)(PeriodicElement);
+export default React.memo(PeriodicElement)

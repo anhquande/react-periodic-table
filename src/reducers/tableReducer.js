@@ -4,7 +4,7 @@ const initState = {
   elements: []
 };
 
-const setElements = createAction("table/setElements");
+export const setElements = createAction("table/setElements");
 
 export const tableReducer = createReducer(initState, {
   [setElements]: (draft, action) => {

@@ -1,9 +1,8 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { Cell } from "./Cell";
-export const ColumnHeaders = ({ rendered = true }) => {
+import Cell from "./Cell";
+const ColumnHeaders = ({ rendered = true }) => {
   if (!rendered) return null;
-
   const headers = Array.from(Array(18), (v, index) => index + 1);
 
   return (
@@ -19,3 +18,5 @@ export const ColumnHeaders = ({ rendered = true }) => {
     </>
   );
 };
+
+export default React.memo(ColumnHeaders)
