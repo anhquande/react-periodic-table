@@ -22,7 +22,6 @@ const PeriodicTable = ({
                        }) => {
   const classes = useClasses(styles, true);
   const filteredElements= React.useMemo(()=>doFilter(elements, filter), [filter,elements])
-  console.log("PeriodicTable render")
   return (
     <Paper>
       <div className={classes.gridContainer}>

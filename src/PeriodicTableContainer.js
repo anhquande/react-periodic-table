@@ -12,11 +12,8 @@ export const PeriodicTableContainer = () => {
 
   useEffect(() => {
     const db = require("./database/elements");
-    console.log("db: ",db)
     dispatch(setElements(db.elements));
   }, []);
-  console.log("state ",state)
-
 
   const renderTable = () => {
     return (
