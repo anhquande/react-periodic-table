@@ -1,5 +1,5 @@
 import React from "react";
-import { useClasses } from "./useClasses";
+import { useClasses } from "./hooks/useClasses";
 import Paper from "@material-ui/core/Paper";
 import ColumnHeaders from "./ColumnHeaders";
 import RowHeaders from "./RowHeaders";

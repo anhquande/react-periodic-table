@@ -9,8 +9,7 @@ import yellow from "@material-ui/core/colors/yellow";
 import cyan from "@material-ui/core/colors/cyan";
 import pink from "@material-ui/core/colors/pink";
 import blueGrey from "@material-ui/core/colors/blueGrey";
-import { useClasses } from './useClasses';
-
+import {useClasses} from './hooks/useClasses'
 const styles = (theme, [row, col]) => {
   return {
     root: {

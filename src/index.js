@@ -20,7 +20,7 @@ function App() {
     <MuiThemeProvider theme={theme}>
 
     <div className="App">
-      <h1>Periodic Table</h1>
+      <h1>Periodic Table ver 0.1</h1>
       <PeriodicTableContainer />
     </div>
     </MuiThemeProvider>
